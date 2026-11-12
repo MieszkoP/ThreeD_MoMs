@@ -29,12 +29,14 @@ You are allowed to used six types of polarization (of electric field):
 5. Pax (Parallel to k and x) $\frac{\mathbf{\hat{k}}\times (\mathbf{\hat{x}} \times \mathbf{\hat{k}})}{|\mathbf{\hat{k}}\times (\mathbf{\hat{x}} \times \mathbf{\hat{k}})|}$
 
 ## Effects:
-1. Simulated:
-   
-2. Example from book 'The Method of Moments in Electromagnetics'
+### Simulated:
+<img width="200" height="200" alt="symulacja_MoM" src="https://github.com/user-attachments/assets/2121e890-fff2-4477-97e2-e8904fc276f4" />
 
-3. 3D:
+### Example from book 'The Method of Moments in Electromagnetics'
+<img width="200" height="200" alt="screen_z_MoM" src="https://github.com/user-attachments/assets/73cf7ce1-8d1d-48b2-9338-09be7580a9a6" />
 
+### 3D:
+<img width="200" height="200" alt="sphere_3D_3645_1_2_A" src="https://github.com/user-attachments/assets/bc2f6cc6-8930-41ed-8aa0-05943423c106" />
 
 ## Installation
 1. You need cMake, nvcc compiler, >python3.9, pybind library
