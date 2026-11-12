@@ -1,30 +1,31 @@
 # Method of moments tool for electromagnetic simulation
 
-Method of moments is a mathematical method to compute electromagnetic simulation. Currently only conductive objects are allowed to use
+The method of moments is a numerical method for electromagnetic simulation. Currently, only conductive objects are supported.
 
-Functions of library (sequential)
-- `create_edge_tables(vertices, faces, num_of_handles)` (create edge tables from vertices and faces)
-- `L_mn(vertices, faces, edges, edges_curr, frequency)` (create matrix EFIE $\mathbf{Z^{EJ}}$ and nMFIE $\mathbf{Z^{H}}$ )
-- `V_m(vertices, faces, edges, edges_curr, k, frequency, polarization)`(create impulse for vector for edges based on polarized TEM wave with direction $k$ )
-- `E_s(r, I_E, verticies, faces, edges, face_curr, frequency)`(Calculate electromagnetic field in positions r, given resulted current matrix I_E  )
+## Library functions (sequential)
+- `create_edge_tables(vertices, faces, num_of_handles)` – creates edge tables from vertices and faces.
+- `L_mn(vertices, faces, edges, face_curr, frequency)` – computes the EFIE matrix $\mathbf{Z^{EJ}}$ and the nMFIE matrix $\mathbf{Z^{H}}$.
+- `V_m(vertices, faces, edges, face_curr, k, frequency, polarization)` – computes the excitation vector for the edges, based on a polarized TEM plane wave propagating in direction $k$.
+- `E_s(r, I_E, vertices, faces, edges, face_curr, frequency)` – computes the scattered electric field at points `r`, given the current vector `I_E`.
   
-Functions of library (parallel, CUDA used)
+## Library functions (parallel, CUDA used)
 - `L_mn_cuda(vertices, faces, edges, edges_curr, frequency)`
 - `L_mn_cuda_16_batches(vertices, faces, edges, edges_curr, frequency)`
 - `E_s_cuda(r, I_E, verticies, faces, edges, face_curr, frequency)`
 
-See the ```example.ipynb``` file to see how to use library. 
+See `example.ipynb` for how to use the library.
 
-## How to create edge and face tables? 
-1. Create 3D object in blender. Object have to be: a) composed only from triangles and b) every edge have to be connected to 2 faces and 2 vertices.
-2. Select it
-3. Open ```blender_vertices_faces.py``` in Blender Scripting tool
-4. Change G to number of handles (holes) in design - it is closely connected the number of vertices and faces
-5. Set up .pkl files
-6. Run script ```blender_vertices_faces.py``` from Blender Scripting tool
+## How to create edge and face tables?
+
+1. Create a 3D object in Blender. The object must be (a) composed only of triangles and (b) closed, i.e. every edge belongs to exactly two faces.
+2. Select it.
+3. Open `blender_vertices_faces.py` in Blender's Scripting tab.
+4. Set `G` to the number of handles (the genus) of the design; together with the number of vertices it determines the number of edges.
+5. Set the output paths of the `.pkl` files.
+6. Run `blender_vertices_faces.py` from Blender's Scripting tab.
 
 ## What is polarization?
-You are allowed to used six types of polarization (of electric field):
+You can choose one of six polarizations of the electric field:
 1. Pez (Perpendicular to k and z) $\frac{\mathbf{\hat{z}} \times \mathbf{\hat{k}}}{|\mathbf{\hat{z}} \times \mathbf{\hat{k}}|}$
 2. Paz (Parallel to k and z) $\frac{\mathbf{\hat{k}}\times (\mathbf{\hat{z}} \times \mathbf{\hat{k}})}{|\mathbf{\hat{k}}\times (\mathbf{\hat{z}} \times \mathbf{\hat{k}})|}$
 3. Pey (Perpendicular to k and y) $\frac{\mathbf{\hat{y}} \times \mathbf{\hat{k}}}{|\mathbf{\hat{y}} \times \mathbf{\hat{k}}|}$
@@ -43,9 +44,11 @@ You are allowed to used six types of polarization (of electric field):
 <img width="200" height="200" alt="sphere_3D_3645_1_2_A" src="https://github.com/user-attachments/assets/bc2f6cc6-8930-41ed-8aa0-05943423c106" />
 
 ## Installation
-1. You need cMake, nvcc compiler, >python3.9, pybind library
-2. Compile python library (Ubuntu compatible)
-3. Use compiled .so library '''ThreeD_MoMs.cpython-312-x86_64-linux-gnu.so''' as a python library
 
-### Based on
-Walton C. Gibson, The Method of Moments in Electromagnetics, Third Edition 2022
+1. You need CMake (≥ 3.18), a C++20 compiler, the `nvcc` compiler, Python ≥ 3.9, and pybind11.
+2. Build the Python module (tested on Ubuntu).
+3. Import the compiled `ThreeD_MoMs.cpython-312-x86_64-linux-gnu.so` as a Python module.
+
+## Based on
+
+Gibson, W. C., *The Method of Moments in Electromagnetics*, 3rd ed., 2022.
