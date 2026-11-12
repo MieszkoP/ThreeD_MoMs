@@ -13,6 +13,7 @@ Functions of library (parallel, CUDA used)
 - `L_mn_cuda_16_batches(vertices, faces, edges, edges_curr, frequency)`
 - `E_s_cuda(r, I_E, verticies, faces, edges, face_curr, frequency)`
 
+See the '''example.ipynb'' file to see how to use library. 
 
 ## How to create edge and face tables? 
 1. Create object you want to simulate in blender and select it
