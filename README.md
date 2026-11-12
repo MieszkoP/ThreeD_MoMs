@@ -16,7 +16,7 @@ Functions of library (parallel, CUDA used)
 See the ```example.ipynb``` file to see how to use library. 
 
 ## How to create edge and face tables? 
-1. Create 2D object in blender. Object have to be: a) composed only from triangles and b) every edge have to be connected to 2 faces and 2 vertices.
+1. Create 3D object in blender. Object have to be: a) composed only from triangles and b) every edge have to be connected to 2 faces and 2 vertices.
 2. Select it
 3. Open ```blender_vertices_faces.py``` in Blender Scripting tool
 4. Change G to number of handles (holes) in design - it is closely connected the number of vertices and faces
