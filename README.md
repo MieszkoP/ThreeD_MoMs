@@ -16,9 +16,12 @@ Functions of library (parallel, CUDA used)
 See the ```example.ipynb``` file to see how to use library. 
 
 ## How to create edge and face tables? 
-1. Create object you want to simulate in blender and select it
-2. Change G to number of handles (holes) in design - it affects the number of vertices and faces
-3. Run script ```blender_vertices_faces.py``` from Blender Scripting tool
+1. Create 2D object in blender. Object have to be: a) composed only from triangles and b) every edge have to be connected to 2 faces and 2 vertices.
+2. Select it
+3. Open ```blender_vertices_faces.py``` in Blender Scripting tool
+4. Change G to number of handles (holes) in design - it is closely connected the number of vertices and faces
+5. Set up .pkl files
+6. Run script ```blender_vertices_faces.py``` from Blender Scripting tool
 
 ## What is polarization?
 You are allowed to used six types of polarization (of electric field):
