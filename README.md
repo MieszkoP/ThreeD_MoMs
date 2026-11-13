@@ -10,8 +10,8 @@ The method of moments is a numerical method for electromagnetic simulation. Curr
   
 ## Library functions (parallel, CUDA used)
 - `L_mn_cuda(vertices, faces, edges, edges_curr, frequency)`
-- `L_mn_cuda_16_batches(vertices, faces, edges, edges_curr, frequency)`
-- `E_s_cuda(r, I_E, verticies, faces, edges, face_curr, frequency)`
+- `L_mn_cuda_16_batches(vertices, faces, edges, edges_curr, frequency)` (since the common GPU bottleneck is VRAM you sometimes need to calculate matrix in batches)
+- `E_s_cuda(r, I_E, verticies, faces, edges, face_curr, frequency)` 
 
 See `example.ipynb` for how to use the library.
 
